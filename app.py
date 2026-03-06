@@ -4,7 +4,7 @@ import streamlit as st
 
 car_data = pd.read_csv('vehicles.csv') # lendo os dados
 hist_button = st.button('Criar histograma') # criar um botão
-
+st.header('Vendas de Carros')
 if hist_button: # se o botão for clicado
     # escrever uma mensagem
     st.write('Criando um histograma para o conjunto de dados de anúncios de vendas de carros')
@@ -21,3 +21,11 @@ build_histogram = st.checkbox('Criar um histograma')
 
 if build_histogram: # se a caixa de seleção for selecionada
   st.write('Criando um histograma para a coluna odometer')
+
+fig = px.scatter(
+    car_data
+    x="price",
+    y="model_year")
+
+
+st.plotly_chart(fig, theme="streamlit", use_container_width=True)
