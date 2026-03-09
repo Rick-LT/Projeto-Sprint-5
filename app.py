@@ -23,7 +23,7 @@ if build_histogram: # se a caixa de seleção for selecionada
   st.write('Criando um histograma para a coluna odometer')
 
 fig = px.scatter(
-    car_data
+    car_data,
     x="price",
     y="model_year")
 
